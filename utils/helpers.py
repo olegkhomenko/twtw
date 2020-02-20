@@ -45,6 +45,7 @@ def remove_outliers(df: pd.DataFrame):
 
 class TWAnalytics:
     FILE_SYNONYMS = 'data/synonyms.yaml'
+    FILE_LOCATIONS = 'data/locations.yaml'
     CONFIG = 'config.yaml'
 
     def __init__(self, api: twitter.api.Api = None, config_path=None):
@@ -103,3 +104,10 @@ class TWAnalytics:
         if not hasattr(self, '_synonyms'):
             self._synonyms = load_config(self.FILE_SYNONYMS)
         return self._synonyms['cities']
+
+    @property
+    def locations(self):
+        if not hasattr(self, '_locations'):
+            self._locations = load_config(self.FILE_LOCATIONS)
+
+        return self._locations
