@@ -3,6 +3,7 @@ twitter_api:
   consumer_secret: 5wb9r5OIhfjMN7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   access_token_key: 3xxxxxxx-E8hQadM10a6fimhA5gPufsAxxxxxxxxxxxxxxxxxx
   access_token_secret: yuFIbeqL9AkZv9GaXFHxxxxxxxxxxxxxxxxxxxxxxxxxx
+  tweet_mode: extended
 parse:
   people_ids:
     - 215348427

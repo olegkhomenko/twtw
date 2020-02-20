@@ -45,8 +45,14 @@ def remove_outliers(df: pd.DataFrame):
 
 class TWAnalytics:
     FILE_SYNONYMS = 'data/synonyms.yaml'
+    CONFIG = 'config.yaml'
 
-    def __init__(self, api: twitter.api.Api):
+    def __init__(self, api: twitter.api.Api = None, config_path=None):
+        if api is None:
+            config_path = config_path if config_path is not None else self.CONFIG
+            api_kwargs = load_config(config_path)['twitter_api']
+            api = twitter.Api(**api_kwargs)
+
         self.api = api
 
     def get_friends_df(self, user_id: int):
