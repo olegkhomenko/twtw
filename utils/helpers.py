@@ -1,5 +1,7 @@
+import asyncio
 import os
 import string
+import time
 from typing import Tuple, Union
 
 import gensim
@@ -10,7 +12,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer, sent_tokenize, word_tokenize
 
 from utils import load_config
-
 
 
 def get_friends(user_id: int,
@@ -50,6 +51,17 @@ def remove_outliers(df: pd.DataFrame):
     return df[mask]
 
 
+class Timer:    
+    def __enter__(self):
+        self.start = time.clock()
+        return self
+
+    def __exit__(self, *args):
+        self.end = time.clock()
+        self.interval = self.end - self.start
+        print(self.interval)
+
+
 class TWAnalytics:
     FILE_SYNONYMS = 'data/synonyms.yaml'
     FILE_LOCATIONS = 'data/locations.yaml'
@@ -65,6 +77,20 @@ class TWAnalytics:
         self.api = api
         self.check_nltk()
         self.tweet_tokenizer = TweetTokenizer()
+
+    def stream_listener(self, location: str = 'moscow', max_num_of_tweets: int = 10):
+        loc = [str(x) for x in self.locations[location]]
+        loc_from = ",".join(loc[:2])
+        loc_to = ",".join(loc[2:])
+        stream = self.api.GetStreamFilter(locations=[loc_from, loc_to])
+        results = []
+        print("Starting")
+        while len(results) < max_num_of_tweets:
+            with Timer():
+                tweet = next(stream)
+                results += [tweet]
+                print("Downloaded")
+        return results
 
     def get_friends_df(self, user_id: int):
         return self.friends_to_df(get_friends(user_id, self.api))
@@ -170,9 +196,8 @@ class TWModel:
         self.model = gensim.models.Word2Vec.load(model_path)
 
     def train(self, sentences: list):
-        self.model =
+        raise NotImplementedError
 
     def _download_weights(self):
         # TODO: Download using model uri
         raise NotImplementedError
-    

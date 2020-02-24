@@ -1,8 +1,9 @@
 import psycopg2
 from psycopg2.extras import Json
+from pymongo import MongoClient
 
 
-class DBHelper:
+class DBHelperPostgres:
     def __init__(self,
                  host: str = 'localhost',
                  port: int = 5432,
@@ -37,4 +38,27 @@ class DBHelper:
         self.conn.commit()
 
     def is_connected(self):
-        pass
+        raise NotImplementedError
+
+
+class DBHelperMongo:
+    def __init__(self, 
+                 mongodb_url: str = 'mongodb://127.0.0.1:27017',
+                 database: str = 'mydb',
+                 table: str = 'tweets'
+                 ):
+
+        self.client = MongoClient(mongodb_url)
+        self.db = self.client[database]
+        self.collection = self.db[table]
+
+    @property
+    def conn(self):
+        return self.client
+
+    def insert_tweet(self, tweet: dict):
+        tweet['_id'] = tweet['id']  # a default MongoDB index
+        return self.collection.insert_one(tweet)
+
+    def find(self, tweet_id: int):
+        return self.collection.find({'_id': tweet_id})
