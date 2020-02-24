@@ -1,2 +1,4 @@
 python-twitter>=3.5
-PyYAML>=5.3
+PyYAML
+nltk
+gensim
