@@ -11,7 +11,7 @@ import twitter
 from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer, sent_tokenize, word_tokenize
 
-from utils import load_config
+from . import load_config
 
 
 def get_friends(user_id: int,

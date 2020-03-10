@@ -1,10 +1,13 @@
-import twitter
-import yaml
-import requests
 import argparse
-from io import BytesIO
-from PIL import Image
-from utils import load_config
+from twtw.utils import load_config
+from dataclasses import dataclass
+
+
+@dataclass
+class Constants:
+    task: str = 'listen-stream'
+    tasks: tuple = ('listen-stream', )
+    config_path: str = './config.yaml'
 
 
 def main(args):
@@ -13,7 +16,8 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('config_path')
+    parser.add_argument('config_path', default=Constants.config_path, help='Path to config file')
+    parser.add_argument('--task', default=Constants.task, choices=Constants.tasks)
 
     args = parser.parse_args()
     main(args)
