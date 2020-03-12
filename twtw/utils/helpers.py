@@ -63,9 +63,9 @@ class Timer:
 
 
 class TWAnalytics:
-    FILE_SYNONYMS = 'data/synonyms.yaml'
-    FILE_LOCATIONS = 'data/locations.yaml'
-    FILE_STOP_WORDS = 'data/stop_words.yaml'
+    FILE_SYNONYMS = 'twtw/data/synonyms.yaml'
+    FILE_LOCATIONS = 'twtw/data/locations.yaml'
+    FILE_STOP_WORDS = 'twtw/data/stop_words.yaml'
     CONFIG = 'config.yaml'
 
     def __init__(self, api: twitter.api.Api = None, config_path=None):
