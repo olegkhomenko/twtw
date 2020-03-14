@@ -44,7 +44,7 @@ def main(args=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', default=None, help='If config_path is provided, args will be overwritten using config file')
+    parser.add_argument('--config', type=str, help='If config_path is provided, args will be overwritten using config file')
     parser.add_argument('--city', default='moscow', help='City to listen stream')
     parser.add_argument('--db', default='mongo', choices=['mongo', 'postgres'], help='Type of DB to be used to store results')
     args = parser.parse_args()
