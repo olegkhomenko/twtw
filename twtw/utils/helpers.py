@@ -186,6 +186,17 @@ class TWAnalytics:
             except LookupError:
                 nltk.download(os.path.basename(el))
 
+    def nearest_station(self, lat: float, long: float) -> str:
+        if not hasattr(self, '_metro_stations'):
+            self._metro_stations = load_config(self.FILE_METRO_STATIONS)
+            df = pd.DataFrame(self._metro_stations).T
+            self._metro_stations_names = df['name'].values
+            self._metro_stations_coord = df[['latitude', 'longitude']].to_numpy(dtype=float)
+
+        point = np.array([lat, long], dtype=float)
+        nearest_station_idx = np.argmin(np.linalg.norm(point - self._metro_stations_coord, axis=1))
+        return self._metro_stations_names[nearest_station_idx]
+
 
 class TWModel:
     MODEL_PATH = './182.zip'
