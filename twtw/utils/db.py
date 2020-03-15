@@ -60,5 +60,18 @@ class DBHelperMongo:
         tweet['_id'] = tweet['id']  # a default MongoDB index
         return self.collection.insert_one(tweet)
 
+    def update_tweet(self, tweet: dict):
+        if '_id' not in tweet:
+            tweet['_id'] = tweet['id']
+        raise NotImplementedError("TODO:")  # TODO: 
+
     def find(self, tweet_id: int):
         return self.collection.find({'_id': tweet_id})
+
+    def count_documents_with_geo(self,):
+        return self.collection.count_documents({'geo': {'$exists': True, '$ne': None}})
+
+    def get_documents_with_geo(self, only_geo_and_text=True):
+        fields = {'geo': 1, 'text': 1} if only_geo_and_text else {}
+        return self.collection.find({'geo': {'$exists': True, '$ne': None}},
+                                    fields)

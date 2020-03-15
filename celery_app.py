@@ -30,16 +30,10 @@ def listen_stream(args=None, config='./configs/listen_stream.yaml'):
 
     twa = TWAnalytics()
     database = DBHelperMongo()
-    result = twa.stream_listener(max_num_of_tweets=3)
+    result = twa.stream_listener(max_num_of_tweets=100)
     for tweet in result:
         print("Inserting tweet: ")
         database.insert_tweet(tweet)
-
-
-def main(args=None):
-    print("Starting main")
-    result = listen_stream.delay()
-    print("Results ready")
 
 
 if __name__ == '__main__':
@@ -48,9 +42,9 @@ if __name__ == '__main__':
     parser.add_argument('--city', default='moscow', help='City to listen stream')
     parser.add_argument('--db', default='mongo', choices=['mongo', 'postgres'], help='Type of DB to be used to store results')
     args = parser.parse_args()
-
-    main(args)
-
+    raise NotImplementedError("Run via celery -A celery_app worker --loglevel=info")
 
 elif __name__ == 'celery_app':
-    main()
+    task_id = uuid()
+    listen_stream.apply_async(task_id=task_id)
+    async_result = AsyncResult(id=task_id)

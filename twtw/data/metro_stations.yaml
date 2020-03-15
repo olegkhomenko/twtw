@@ -1,0 +1,808 @@
+0: 
+ name: "Bulvar Rokossovskogo"
+ latitude: 55.8148
+ longitude: 37.7342
+1: 
+ name: Cherkizovskaya
+ latitude: 55.8038
+ longitude: 37.7448
+2: 
+ name: "Preobrazhenskaya Ploshchad"
+ latitude: 55.7963
+ longitude: 37.7151
+3: 
+ name: Sokolniki
+ latitude: 55.7888
+ longitude: 37.6802
+4: 
+ name: Krasnoselskaya
+ latitude: 55.7801
+ longitude: 37.6673
+5: 
+ name: Komsomolskaya
+ latitude: 55.7753
+ longitude: 37.6562
+6: 
+ name: "Krasnye Vorota"
+ latitude: 55.769
+ longitude: 37.6487
+7: 
+ name: "Chistye Prudy"
+ latitude: 55.7657
+ longitude: 37.6388
+8: 
+ name: Lubyanka
+ latitude: 55.7597
+ longitude: 37.6272
+9: 
+ name: "Okhotny Ryad"
+ latitude: 55.7577
+ longitude: 37.6166
+10: 
+ name: "Biblioteka Imeni Lenina"
+ latitude: 55.7512
+ longitude: 37.61
+11: 
+ name: Kropotkinskaya
+ latitude: 55.7453
+ longitude: 37.6037
+12: 
+ name: "Park Kultury"
+ latitude: 55.7356
+ longitude: 37.5943
+13: 
+ name: Frunzenskaya
+ latitude: 55.7267
+ longitude: 37.5786
+14: 
+ name: Sportivnaya
+ latitude: 55.7233
+ longitude: 37.5639
+15: 
+ name: "Vorobyovy Gory"
+ latitude: 55.7103
+ longitude: 37.5592
+16: 
+ name: Universitet
+ latitude: 55.6926
+ longitude: 37.5333
+17: 
+ name: "Prospekt Vernadskogo"
+ latitude: 55.6771
+ longitude: 37.506
+18: 
+ name: "Yugo-Zapadnaya"
+ latitude: 55.6637
+ longitude: 37.4833
+19: 
+ name: Troparyovo
+ latitude: 55.6459
+ longitude: 37.4725
+20: 
+ name: "Rechnoy Vokzal"
+ latitude: 55.8549
+ longitude: 37.4761
+21: 
+ name: "Vodny Stadion"
+ latitude: 55.8398
+ longitude: 37.4867
+22: 
+ name: Voykovskaya
+ latitude: 55.819
+ longitude: 37.498
+23: 
+ name: Sokol
+ latitude: 55.8051
+ longitude: 37.5153
+24: 
+ name: Aeroport
+ latitude: 55.8003
+ longitude: 37.5329
+25: 
+ name: Dinamo
+ latitude: 55.7897
+ longitude: 37.558
+26: 
+ name: Belorusskaya
+ latitude: 55.7767
+ longitude: 37.5835
+27: 
+ name: Mayakovskaya
+ latitude: 55.7701
+ longitude: 37.5958
+28: 
+ name: Tverskaya
+ latitude: 55.7647
+ longitude: 37.6065
+29: 
+ name: Teatralnaya
+ latitude: 55.7578
+ longitude: 37.619
+30: 
+ name: Novokuznetskaya
+ latitude: 55.7415
+ longitude: 37.6295
+31: 
+ name: Paveletskaya
+ latitude: 55.7305
+ longitude: 37.6377
+32: 
+ name: Avtozavodskaya
+ latitude: 55.7074
+ longitude: 37.6576
+33: 
+ name: Kolomenskaya
+ latitude: 55.6785
+ longitude: 37.6638
+34: 
+ name: Kashirskaya
+ latitude: 55.6551
+ longitude: 37.6487
+35: 
+ name: Kantemirovskaya
+ latitude: 55.6358
+ longitude: 37.6564
+36: 
+ name: Tsaritsyno
+ latitude: 55.6214
+ longitude: 37.6694
+37: 
+ name: Orekhovo
+ latitude: 55.6132
+ longitude: 37.6949
+38: 
+ name: Domodedovskaya
+ latitude: 55.6108
+ longitude: 37.7186
+39: 
+ name: Krasnogvardeyskaya
+ latitude: 55.6137
+ longitude: 37.7444
+40: 
+ name: "Alma-Atinskaya"
+ latitude: 55.6326
+ longitude: 37.766
+41: 
+ name: "Pyatnitskoye Shosse"
+ latitude: 55.8563
+ longitude: 37.3544
+42: 
+ name: Mitino
+ latitude: 55.8457
+ longitude: 37.3622
+43: 
+ name: Volokolamskaya
+ latitude: 55.8354
+ longitude: 37.3822
+44: 
+ name: Myakinino
+ latitude: 55.8252
+ longitude: 37.3852
+45: 
+ name: Strogino
+ latitude: 55.8038
+ longitude: 37.4031
+46: 
+ name: Krylatskoye
+ latitude: 55.7567
+ longitude: 37.4081
+47: 
+ name: Molodyozhnaya
+ latitude: 55.7408
+ longitude: 37.4168
+48: 
+ name: Kuntsevskaya
+ latitude: 55.7307
+ longitude: 37.4459
+49: 
+ name: "Slavyansky Bulvar"
+ latitude: 55.7296
+ longitude: 37.4706
+50: 
+ name: "Park Pobedy"
+ latitude: 55.7362
+ longitude: 37.5182
+51: 
+ name: Kiyevskaya
+ latitude: 55.7442
+ longitude: 37.5645
+52: 
+ name: Smolenskaya
+ latitude: 55.7474
+ longitude: 37.5823
+53: 
+ name: Arbatskaya
+ latitude: 55.7522
+ longitude: 37.6061
+54: 
+ name: "Ploshchad Revolyutsii"
+ latitude: 55.7566
+ longitude: 37.6216
+55: 
+ name: Kurskaya
+ latitude: 55.7576
+ longitude: 37.6577
+56: 
+ name: Baumanskaya
+ latitude: 55.773
+ longitude: 37.6806
+57: 
+ name: Elektrozavodskaya
+ latitude: 55.7817
+ longitude: 37.7037
+58: 
+ name: Semyonovskaya
+ latitude: 55.7833
+ longitude: 37.7208
+59: 
+ name: Partizanskaya
+ latitude: 55.7886
+ longitude: 37.7506
+60: 
+ name: Izmaylovskaya
+ latitude: 55.7878
+ longitude: 37.7814
+61: 
+ name: Pervomayskaya
+ latitude: 55.7948
+ longitude: 37.7993
+62: 
+ name: Shchyolkovskaya
+ latitude: 55.8094
+ longitude: 37.7986
+63: 
+ name: Kuntsevskaya
+ latitude: 55.7307
+ longitude: 37.4459
+64: 
+ name: Pionerskaya
+ latitude: 55.736
+ longitude: 37.4671
+65: 
+ name: "Filyovsky Park"
+ latitude: 55.7396
+ longitude: 37.4833
+66: 
+ name: Bagrationovskaya
+ latitude: 55.7438
+ longitude: 37.4977
+67: 
+ name: Fili
+ latitude: 55.746
+ longitude: 37.515
+68: 
+ name: Kutuzovskaya
+ latitude: 55.7399
+ longitude: 37.5344
+69: 
+ name: Studencheskaya
+ latitude: 55.7388
+ longitude: 37.5483
+70: 
+ name: Mezhdunarodnaya
+ latitude: 55.7483
+ longitude: 37.5339
+71: 
+ name: Vystavochnaya
+ latitude: 55.7502
+ longitude: 37.5408
+72: 
+ name: Kiyevskaya
+ latitude: 55.7436
+ longitude: 37.5655
+73: 
+ name: Smolenskaya
+ latitude: 55.7488
+ longitude: 37.5825
+74: 
+ name: Arbatskaya
+ latitude: 55.7518
+ longitude: 37.6007
+75: 
+ name: "Aleksandrovsky Sad"
+ latitude: 55.7525
+ longitude: 37.6085
+76: 
+ name: Kiyevskaya
+ latitude: 55.7446
+ longitude: 37.5644
+77: 
+ name: Krasnopresnenskaya
+ latitude: 55.7613
+ longitude: 37.5774
+78: 
+ name: Belorusskaya
+ latitude: 55.7764
+ longitude: 37.5844
+79: 
+ name: Novoslobodskaya
+ latitude: 55.7799
+ longitude: 37.6028
+80: 
+ name: "Prospekt Mira"
+ latitude: 55.7798
+ longitude: 37.6318
+81: 
+ name: Komsomolskaya
+ latitude: 55.7748
+ longitude: 37.6549
+82: 
+ name: Kurskaya
+ latitude: 55.757
+ longitude: 37.6595
+83: 
+ name: Taganskaya
+ latitude: 55.7418
+ longitude: 37.6517
+84: 
+ name: Paveletskaya
+ latitude: 55.7318
+ longitude: 37.6379
+85: 
+ name: Dobryninskaya
+ latitude: 55.7291
+ longitude: 37.6243
+86: 
+ name: Oktyabrskaya
+ latitude: 55.7297
+ longitude: 37.6091
+87: 
+ name: "Park Kultury"
+ latitude: 55.7357
+ longitude: 37.5915
+88: 
+ name: Medvedkovo
+ latitude: 55.8872
+ longitude: 37.6613
+89: 
+ name: Babushkinskaya
+ latitude: 55.8694
+ longitude: 37.6644
+90: 
+ name: Sviblovo
+ latitude: 55.8552
+ longitude: 37.6527
+91: 
+ name: "Botanichesky Sad"
+ latitude: 55.8449
+ longitude: 37.6383
+92: 
+ name: VDNKh
+ latitude: 55.8211
+ longitude: 37.6411
+93: 
+ name: Alekseyevskaya
+ latitude: 55.8088
+ longitude: 37.639
+94: 
+ name: Rizhskaya
+ latitude: 55.7936
+ longitude: 37.6362
+95: 
+ name: "Prospekt Mira"
+ latitude: 55.7812
+ longitude: 37.6318
+96: 
+ name: Sukharevskaya
+ latitude: 55.7733
+ longitude: 37.6319
+97: 
+ name: Turgenevskaya
+ latitude: 55.7661
+ longitude: 37.6374
+98: 
+ name: "Kitay-gorod"
+ latitude: 55.7553
+ longitude: 37.6333
+99: 
+ name: Tretyakovskaya
+ latitude: 55.7412
+ longitude: 37.6274
+100: 
+ name: Oktyabrskaya
+ latitude: 55.7306
+ longitude: 37.6112
+101: 
+ name: Shabolovskaya
+ latitude: 55.7198
+ longitude: 37.6083
+102: 
+ name: "Leninsky Prospekt"
+ latitude: 55.7077
+ longitude: 37.5861
+103: 
+ name: Akademicheskaya
+ latitude: 55.6877
+ longitude: 37.5733
+104: 
+ name: Profsoyuznaya
+ latitude: 55.678
+ longitude: 37.5627
+105: 
+ name: "Novye Cheryomushki"
+ latitude: 55.6702
+ longitude: 37.5544
+106: 
+ name: Kaluzhskaya
+ latitude: 55.6571
+ longitude: 37.5405
+107: 
+ name: Belyayevo
+ latitude: 55.6428
+ longitude: 37.5257
+108: 
+ name: Konkovo
+ latitude: 55.6333
+ longitude: 37.5188
+109: 
+ name: "Tyoply Stan"
+ latitude: 55.6191
+ longitude: 37.5082
+110: 
+ name: Yasenevo
+ latitude: 55.6063
+ longitude: 37.5333
+111: 
+ name: Novoyasenevskaya
+ latitude: 55.601
+ longitude: 37.5541
+112: 
+ name: Planernaya
+ latitude: 55.8607
+ longitude: 37.4364
+113: 
+ name: Skhodnenskaya
+ latitude: 55.8505
+ longitude: 37.4396
+114: 
+ name: Tushinskaya
+ latitude: 55.8267
+ longitude: 37.4368
+115: 
+ name: Spartak
+ latitude: 55.8182
+ longitude: 37.4352
+116: 
+ name: Shchukinskaya
+ latitude: 55.8086
+ longitude: 37.4641
+117: 
+ name: "Oktyabrskoye Pole"
+ latitude: 55.7935
+ longitude: 37.4935
+118: 
+ name: Polezhayevskaya
+ latitude: 55.7775
+ longitude: 37.5192
+119: 
+ name: Begovaya
+ latitude: 55.7738
+ longitude: 37.5468
+120: 
+ name: "Ulitsa 1905 Goda"
+ latitude: 55.765
+ longitude: 37.5613
+121: 
+ name: Barrikadnaya
+ latitude: 55.7612
+ longitude: 37.5795
+122: 
+ name: Pushkinskaya
+ latitude: 55.765
+ longitude: 37.6079
+123: 
+ name: "Kuznetsky Most"
+ latitude: 55.7606
+ longitude: 37.6259
+124: 
+ name: "Kitay-gorod"
+ latitude: 55.7553
+ longitude: 37.6333
+125: 
+ name: Taganskaya
+ latitude: 55.7402
+ longitude: 37.6522
+126: 
+ name: Proletarskaya
+ latitude: 55.7319
+ longitude: 37.6659
+127: 
+ name: "Volgogradsky Prospekt"
+ latitude: 55.7253
+ longitude: 37.6869
+128: 
+ name: Tekstilshchiki
+ latitude: 55.7088
+ longitude: 37.7316
+129: 
+ name: Kuzminki
+ latitude: 55.7056
+ longitude: 37.7656
+130: 
+ name: "Ryazansky Prospekt"
+ latitude: 55.717
+ longitude: 37.7933
+131: 
+ name: Vykhino
+ latitude: 55.7156
+ longitude: 37.8181
+132: 
+ name: "Lermontovsky Prospekt"
+ latitude: 55.7013
+ longitude: 37.8525
+133: 
+ name: Zhulebino
+ latitude: 55.6855
+ longitude: 37.8563
+134: 
+ name: "Park Pobedy"
+ latitude: 55.7362
+ longitude: 37.5182
+135: 
+ name: "Delovoy Tsentr"
+ latitude: 55.7491
+ longitude: 37.5395
+136: 
+ name: Tretyakovskaya
+ latitude: 55.7412
+ longitude: 37.6274
+137: 
+ name: Marksistskaya
+ latitude: 55.7411
+ longitude: 37.6543
+138: 
+ name: "Ploshchad Ilyicha"
+ latitude: 55.7472
+ longitude: 37.6824
+139: 
+ name: Aviamotornaya
+ latitude: 55.7524
+ longitude: 37.7191
+140: 
+ name: "Shosse Entuziastov"
+ latitude: 55.7576
+ longitude: 37.75
+141: 
+ name: Perovo
+ latitude: 55.7511
+ longitude: 37.7866
+142: 
+ name: Novogireyevo
+ latitude: 55.7517
+ longitude: 37.8166
+143: 
+ name: Novokosino
+ latitude: 55.7451
+ longitude: 37.8638
+144: 
+ name: Altufyevo
+ latitude: 55.898
+ longitude: 37.587
+145: 
+ name: Bibirevo
+ latitude: 55.8838
+ longitude: 37.6034
+146: 
+ name: Otradnoye
+ latitude: 55.8633
+ longitude: 37.6047
+147: 
+ name: Vladykino
+ latitude: 55.8473
+ longitude: 37.5899
+148: 
+ name: "Petrovsko-Razumovskaya"
+ latitude: 55.8351
+ longitude: 37.5745
+149: 
+ name: Timiryazevskaya
+ latitude: 55.8176
+ longitude: 37.5765
+150: 
+ name: Dmitrovskaya
+ latitude: 55.8069
+ longitude: 37.5817
+151: 
+ name: Savyolovskaya
+ latitude: 55.7927
+ longitude: 37.5885
+152: 
+ name: Mendeleyevskaya
+ latitude: 55.781
+ longitude: 37.6011
+153: 
+ name: "Tsvetnoy Bulvar"
+ latitude: 55.7708
+ longitude: 37.6187
+154: 
+ name: Chekhovskaya
+ latitude: 55.7644
+ longitude: 37.6097
+155: 
+ name: Borovitskaya
+ latitude: 55.7511
+ longitude: 37.6072
+156: 
+ name: Polyanka
+ latitude: 55.7379
+ longitude: 37.618
+157: 
+ name: Serpukhovskaya
+ latitude: 55.728
+ longitude: 37.6246
+158: 
+ name: Tulskaya
+ latitude: 55.7087
+ longitude: 37.6229
+159: 
+ name: Nagatinskaya
+ latitude: 55.683
+ longitude: 37.6224
+160: 
+ name: Nagornaya
+ latitude: 55.6724
+ longitude: 37.6104
+161: 
+ name: "Nakhimovsky Prospekt"
+ latitude: 55.6627
+ longitude: 37.6055
+162: 
+ name: Sevastopolskaya
+ latitude: 55.6524
+ longitude: 37.5984
+163: 
+ name: Chertanovskaya
+ latitude: 55.6405
+ longitude: 37.6067
+164: 
+ name: Yuzhnaya
+ latitude: 55.6224
+ longitude: 37.609
+165: 
+ name: Prazhskaya
+ latitude: 55.6124
+ longitude: 37.6044
+166: 
+ name: "Ulitsa Akademika Yangelya"
+ latitude: 55.5949
+ longitude: 37.6004
+167: 
+ name: Annino
+ latitude: 55.5828
+ longitude: 37.5966
+168: 
+ name: "Bulvar Dmitriya Donskogo"
+ latitude: 55.5693
+ longitude: 37.5769
+169: 
+ name: "Maryina Roshcha"
+ latitude: 55.7954
+ longitude: 37.6162
+170: 
+ name: Dostoyevskaya
+ latitude: 55.7816
+ longitude: 37.6151
+171: 
+ name: Trubnaya
+ latitude: 55.7688
+ longitude: 37.62
+172: 
+ name: "Sretensky Bulvar"
+ latitude: 55.7668
+ longitude: 37.6392
+173: 
+ name: Chkalovskaya
+ latitude: 55.7565
+ longitude: 37.6573
+174: 
+ name: Rimskaya
+ latitude: 55.7463
+ longitude: 37.6819
+175: 
+ name: "Krestyanskaya Zastava"
+ latitude: 55.7331
+ longitude: 37.6673
+176: 
+ name: Dubrovka
+ latitude: 55.7186
+ longitude: 37.676
+177: 
+ name: Kozhukhovskaya
+ latitude: 55.7074
+ longitude: 37.6851
+178: 
+ name: Pechatniki
+ latitude: 55.6934
+ longitude: 37.727
+179: 
+ name: Volzhskaya
+ latitude: 55.6909
+ longitude: 37.753
+180: 
+ name: Lyublino
+ latitude: 55.6758
+ longitude: 37.7618
+181: 
+ name: Bratislavskaya
+ latitude: 55.6597
+ longitude: 37.7505
+182: 
+ name: Maryino
+ latitude: 55.65
+ longitude: 37.7431
+183: 
+ name: Borisovo
+ latitude: 55.6334
+ longitude: 37.7436
+184: 
+ name: Shipilovskaya
+ latitude: 55.6211
+ longitude: 37.7437
+185: 
+ name: Zyablikovo
+ latitude: 55.6124
+ longitude: 37.7453
+186: 
+ name: Kashirskaya
+ latitude: 55.6551
+ longitude: 37.6487
+187: 
+ name: Varshavskaya
+ latitude: 55.6533
+ longitude: 37.6194
+188: 
+ name: Kakhovskaya
+ latitude: 55.653
+ longitude: 37.5983
+189: 
+ name: "Bittsevsky Park"
+ latitude: 55.6004
+ longitude: 37.5562
+190: 
+ name: Lesoparkovaya
+ latitude: 55.5821
+ longitude: 37.5769
+191: 
+ name: "Ulitsa Starokachalovskaya"
+ latitude: 55.569
+ longitude: 37.5767
+192: 
+ name: "Ulitsa Skobelevskaya"
+ latitude: 55.5481
+ longitude: 37.5546
+193: 
+ name: "Bulvar Admirala Ushakova"
+ latitude: 55.5455
+ longitude: 37.543
+194: 
+ name: "Ulitsa Gorchakova"
+ latitude: 55.5418
+ longitude: 37.5308
+195: 
+ name: "Buninskaya Alleya"
+ latitude: 55.538
+ longitude: 37.5158
+196: 
+ name: Timiryazevskaya
+ latitude: 55.819
+ longitude: 37.5789
+197: 
+ name: "Ulitsa Milashenkova"
+ latitude: 55.8218
+ longitude: 37.5911
+198: 
+ name: Teletsentr
+ latitude: 55.8218
+ longitude: 37.6089
+199: 
+ name: "Ulitsa Akademika Korolyova"
+ latitude: 55.8218
+ longitude: 37.6269
+200: 
+ name: "Vystavochny Tsentr"
+ latitude: 55.824
+ longitude: 37.6383
+201: 
+ name: "Ulitsa Sergeya Eyzenshteyna"
+ latitude: 55.8292
+ longitude: 37.6449
