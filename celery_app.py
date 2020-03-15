@@ -3,13 +3,14 @@ import pprint
 import time
 
 import twitter
-from celery import Celery
+from celery import Celery, uuid
+from celery.result import AsyncResult
+from easydict import EasyDict as edict
 
 from twtw.utils.db import DBHelperMongo
 from twtw.utils.helpers import TWAnalytics, load_config
-from easydict import EasyDict as edict
 
-app = Celery('worker', broker='pyamqp://guest@localhost//')
+app = Celery('worker', broker='pyamqp://guest@localhost')
 
 
 @app.task

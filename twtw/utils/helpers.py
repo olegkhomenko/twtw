@@ -6,6 +6,7 @@ from typing import Tuple, Union
 
 import gensim
 import nltk
+import numpy as np
 import pandas as pd
 import twitter
 from nltk.corpus import stopwords
@@ -66,6 +67,7 @@ class TWAnalytics:
     FILE_SYNONYMS = 'twtw/data/synonyms.yaml'
     FILE_LOCATIONS = 'twtw/data/locations.yaml'
     FILE_STOP_WORDS = 'twtw/data/stop_words.yaml'
+    FILE_METRO_STATIONS = 'twtw/data/metro_stations.yaml'
     CONFIG = 'config.yaml'
 
     def __init__(self, api: twitter.api.Api = None, config_path=None):
