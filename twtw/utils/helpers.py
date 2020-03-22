@@ -1,4 +1,3 @@
-import asyncio
 import os
 import string
 import time
@@ -10,7 +9,7 @@ import numpy as np
 import pandas as pd
 import twitter
 from nltk.corpus import stopwords
-from nltk.tokenize import TweetTokenizer, sent_tokenize, word_tokenize
+from nltk.tokenize import TweetTokenizer, sent_tokenize
 
 from . import load_config
 
@@ -73,12 +72,16 @@ class TWAnalytics:
     def __init__(self, api: twitter.api.Api = None, config_path=None):
         if api is None:
             config_path = config_path if config_path is not None else self.CONFIG
-            api_kwargs = load_config(config_path)['twitter_api']
+            self.config = load_config(config_path)
+
+            api_kwargs = self.config['twitter_api']
             api = twitter.Api(**api_kwargs)
 
         self.api = api
         self.check_nltk()
-        self.tweet_tokenizer = TweetTokenizer()
+
+        tweet_tokenizer_kwargs = getattr(self, 'config', {}).get('tweet_tokenizer', {})
+        self.tweet_tokenizer = TweetTokenizer(**tweet_tokenizer_kwargs)
 
     def stream_listener(self, location: str = 'moscow', max_num_of_tweets: int = 10):
         loc = [str(x) for x in self.locations[location]]
@@ -150,6 +153,9 @@ class TWAnalytics:
 
     def _tokenize(self, text: str):
         tokens = self.tweet_tokenizer.tokenize(text)
+        return self._process_tokens(tokens)
+
+    def _process_tokens(self, tokens: list):
         tokens = [i for i in tokens if (i not in string.punctuation)]
         stop_words = stopwords.words('russian')
         stop_words.extend(self.stop_words)
@@ -176,7 +182,7 @@ class TWAnalytics:
     @property
     def stop_words(self):
         if not hasattr(self, '_stop_words'):
-            self._stop_words = load_config(self.FILE_STOP_WORDS)
+            self._stop_words = load_config(self.FILE_STOP_WORDS)['ru']
 
         return self._stop_words
 

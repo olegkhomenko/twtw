@@ -42,7 +42,7 @@ class DBHelperPostgres:
 
 
 class DBHelperMongo:
-    def __init__(self, 
+    def __init__(self,
                  mongodb_url: str = 'mongodb://127.0.0.1:27017',
                  database: str = 'mydb',
                  table: str = 'tweets'
@@ -63,7 +63,7 @@ class DBHelperMongo:
     def update_tweet(self, tweet: dict):
         if '_id' not in tweet:
             tweet['_id'] = tweet['id']
-        raise NotImplementedError("TODO:")  # TODO: 
+        raise NotImplementedError("TODO:")  # TODO:
 
     def find(self, tweet_id: int):
         return self.collection.find({'_id': tweet_id})
@@ -75,3 +75,11 @@ class DBHelperMongo:
         fields = {'geo': 1, 'text': 1} if only_geo_and_text else {}
         return self.collection.find({'geo': {'$exists': True, '$ne': None}},
                                     fields)
+
+    def get_documents_with_media(self, only_link=False):
+        cur = self.collection.find(
+            {'extended_entities.media': {'$exists': True, '$not': {'$size': 0}}},
+            {'extended_entities.media.media_url_https': 1} if only_link else {},
+            )
+
+        return cur

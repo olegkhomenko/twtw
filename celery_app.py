@@ -1,6 +1,4 @@
 import argparse
-import pprint
-import time
 
 import twitter
 from celery import Celery, uuid
@@ -14,7 +12,11 @@ app = Celery('worker', broker='pyamqp://guest@localhost')
 
 
 @app.task
-def listen_stream(args=None, config='./configs/listen_stream.yaml'):
+def listen_stream(args=None,
+                  config='./configs/listen_stream.yaml',
+                  max_num_of_tweets=100,
+                  max_iterations=20,
+                  ):
     if args is None:
         args = edict()
         config = load_config(config)
@@ -31,10 +33,12 @@ def listen_stream(args=None, config='./configs/listen_stream.yaml'):
 
     twa = TWAnalytics()
     database = DBHelperMongo()
-    result = twa.stream_listener(max_num_of_tweets=100)
-    for tweet in result:
-        print("Inserting tweet: ")
-        database.insert_tweet(tweet)
+    for i in range(max_iterations):
+        print("Listeining stream, iteration #", i)
+        result = twa.stream_listener(max_num_of_tweets=max_num_of_tweets)
+        for tweet in result:
+            print("Inserting tweet: ")
+            database.insert_tweet(tweet)
 
 
 if __name__ == '__main__':
@@ -47,5 +51,5 @@ if __name__ == '__main__':
 
 elif __name__ == 'celery_app':
     task_id = uuid()
-    listen_stream.apply_async(task_id=task_id)
-    async_result = AsyncResult(id=task_id)
+    listen_stream.apply_async(kwargs={'max_num_of_tweets': 100, 'max_iterations': 20},
+                              task_id=task_id, queue='twitter_api')
