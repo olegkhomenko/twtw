@@ -76,10 +76,17 @@ class DBHelperMongo:
         return self.collection.find({'geo': {'$exists': True, '$ne': None}},
                                     fields)
 
-    def get_documents_with_media(self, only_link=False):
-        cur = self.collection.find(
-            {'extended_entities.media': {'$exists': True, '$not': {'$size': 0}}},
-            {'extended_entities.media.media_url_https': 1} if only_link else {},
-            )
+    def get_documents_with_media(self, link=False, user_id=False, created_at=False):
+        return_values = {}
+        flags = [(link, 'extended_entities.media.media_url_https'),
+                 (user_id, 'user.id'),
+                 (created_at, 'created_at')
+                 ]
 
+        for flag, field in flags:
+            if flag:
+                return_values[field] = 1
+
+        cur = self.collection.find({'extended_entities.media': {'$exists': True, '$not': {'$size': 0}}},
+                                   return_values if return_values else None)
         return cur
