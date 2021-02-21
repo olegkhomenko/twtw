@@ -1,11 +1,12 @@
+from io import BytesIO
+
 import requests
 import yaml
 from PIL import Image
-from io import BytesIO
 
 
 def load_config(path: str):
-    with open(path, 'r') as fin:
+    with open(path, "r") as fin:
         config = yaml.load(fin, Loader=yaml.FullLoader)
 
     return config

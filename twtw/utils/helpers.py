@@ -14,11 +14,12 @@ from nltk.tokenize import TweetTokenizer, sent_tokenize
 from . import load_config
 
 
-def get_friends(user_id: int,
-                api: twitter.api.Api,
-                n_friends: int = None,
-                max_requests=100,
-                ) -> list:
+def get_friends(
+    user_id: int,
+    api: twitter.api.Api,
+    n_friends: int = None,
+    max_requests=100,
+) -> list:
 
     friends = []
     next_cursor = -1
@@ -34,14 +35,12 @@ def get_friends(user_id: int,
         n_requests += 1
 
     if n_requests < max_requests:
-        assert n_friends == len(friends), f'{n_friends} !- {len(friends)}'
+        assert n_friends == len(friends), f"{n_friends} !- {len(friends)}"
 
     return friends
 
 
-def get_statuses(user_id: int,
-                 api: twitter.api.Api
-                 ):
+def get_statuses(user_id: int, api: twitter.api.Api):
 
     pass
 
@@ -51,7 +50,7 @@ def remove_outliers(df: pd.DataFrame):
     return df[mask]
 
 
-class Timer:    
+class Timer:
     def __enter__(self):
         self.start = time.clock()
         return self
@@ -63,27 +62,27 @@ class Timer:
 
 
 class TWAnalytics:
-    FILE_SYNONYMS = 'twtw/data/synonyms.yaml'
-    FILE_LOCATIONS = 'twtw/data/locations.yaml'
-    FILE_STOP_WORDS = 'twtw/data/stop_words.yaml'
-    FILE_METRO_STATIONS = 'twtw/data/metro_stations.yaml'
-    CONFIG = 'config.yaml'
+    FILE_SYNONYMS = "twtw/data/synonyms.yaml"
+    FILE_LOCATIONS = "twtw/data/locations.yaml"
+    FILE_STOP_WORDS = "twtw/data/stop_words.yaml"
+    FILE_METRO_STATIONS = "twtw/data/metro_stations.yaml"
+    CONFIG = "config.yaml"
 
     def __init__(self, api: twitter.api.Api = None, config_path=None):
         if api is None:
             config_path = config_path if config_path is not None else self.CONFIG
             self.config = load_config(config_path)
 
-            api_kwargs = self.config['twitter_api']
+            api_kwargs = self.config["twitter_api"]
             api = twitter.Api(**api_kwargs)
 
         self.api = api
         self.check_nltk()
 
-        tweet_tokenizer_kwargs = getattr(self, 'config', {}).get('tweet_tokenizer', {})
+        tweet_tokenizer_kwargs = getattr(self, "config", {}).get("tweet_tokenizer", {})
         self.tweet_tokenizer = TweetTokenizer(**tweet_tokenizer_kwargs)
 
-    def stream_listener(self, location: str = 'moscow', max_num_of_tweets: int = 10):
+    def stream_listener(self, location: str = "moscow", max_num_of_tweets: int = 10):
         loc = [str(x) for x in self.locations[location]]
         loc_from = ",".join(loc[:2])
         loc_to = ",".join(loc[2:])
@@ -100,11 +99,12 @@ class TWAnalytics:
     def get_friends_df(self, user_id: int):
         return self.friends_to_df(get_friends(user_id, self.api))
 
-    def friends_cities(self,
-                       user_id: int = None,
-                       friends_df: pd.DataFrame = None,
-                       return_friends_df=True,
-                       ) -> Union[dict, Tuple[dict, pd.DataFrame]]:
+    def friends_cities(
+        self,
+        user_id: int = None,
+        friends_df: pd.DataFrame = None,
+        return_friends_df=True,
+    ) -> Union[dict, Tuple[dict, pd.DataFrame]]:
 
         if user_id is None and friends_df is None:
             raise ValueError("Please pass user_id or friends_df as a parameter")
@@ -115,7 +115,8 @@ class TWAnalytics:
                 friends_df_orig = friends_df.copy()
 
         friends_df.location = friends_df.location.map(  # Replace different names of cities w/ a common name
-            lambda x: x.split(',')[0] if isinstance(x, str) else x).replace(self.cities)
+            lambda x: x.split(",")[0] if isinstance(x, str) else x
+        ).replace(self.cities)
 
         friends_cities: pd.Series = friends_df.location.value_counts().sort_values(ascending=False)
 
@@ -123,10 +124,11 @@ class TWAnalytics:
             return friends_cities.to_dict(), friends_df_orig
         return friends_cities.to_dict()
 
-    def friends_followers_count_stats(self,
-                                      user_id: int = None,
-                                      friends_df: pd.DataFrame = None,
-                                      ):
+    def friends_followers_count_stats(
+        self,
+        user_id: int = None,
+        friends_df: pd.DataFrame = None,
+    ):
 
         if user_id is None and friends_df is None:
             raise ValueError("Please pass user_id or friends_df as a parameter")
@@ -134,13 +136,14 @@ class TWAnalytics:
         if friends_df is None:
             friends_df = self.get_friends_df(user_id)
 
-        return friends_df.followers_count.agg(['min', 'max', 'median', 'std', 'mean']).to_dict()
+        return friends_df.followers_count.agg(["min", "max", "median", "std", "mean"]).to_dict()
 
-    def get_tokenized_timeline(self,
-                               user_id: int = None,
-                               ):
+    def get_tokenized_timeline(
+        self,
+        user_id: int = None,
+    ):
         tweets = self.api.GetUserTimeline(user_id=user_id)
-        tweets_sentences = [sent_tokenize(t.full_text, language='russian') for t in tweets]
+        tweets_sentences = [sent_tokenize(t.full_text, language="russian") for t in tweets]
 
         tokenized_tweets = []
         for tweet in tweets_sentences:
@@ -157,7 +160,7 @@ class TWAnalytics:
 
     def _process_tokens(self, tokens: list):
         tokens = [i for i in tokens if (i not in string.punctuation)]
-        stop_words = stopwords.words('russian')
+        stop_words = stopwords.words("russian")
         stop_words.extend(self.stop_words)
         tokens = [i for i in tokens if (i not in stop_words)]
         return tokens
@@ -168,38 +171,38 @@ class TWAnalytics:
 
     @property
     def cities(self):
-        if not hasattr(self, '_synonyms'):
+        if not hasattr(self, "_synonyms"):
             self._synonyms = load_config(self.FILE_SYNONYMS)
-        return self._synonyms['cities']
+        return self._synonyms["cities"]
 
     @property
     def locations(self):
-        if not hasattr(self, '_locations'):
+        if not hasattr(self, "_locations"):
             self._locations = load_config(self.FILE_LOCATIONS)
 
         return self._locations
 
     @property
     def stop_words(self):
-        if not hasattr(self, '_stop_words'):
-            self._stop_words = load_config(self.FILE_STOP_WORDS)['ru']
+        if not hasattr(self, "_stop_words"):
+            self._stop_words = load_config(self.FILE_STOP_WORDS)["ru"]
 
         return self._stop_words
 
     @classmethod
     def check_nltk(cls):
-        for el in ['tokenizers/punkt', 'corpora/stopwords']:
+        for el in ["tokenizers/punkt", "corpora/stopwords"]:
             try:
                 nltk.data.find(el)
             except LookupError:
                 nltk.download(os.path.basename(el))
 
     def nearest_station(self, lat: float, long: float) -> str:
-        if not hasattr(self, '_metro_stations'):
+        if not hasattr(self, "_metro_stations"):
             self._metro_stations = load_config(self.FILE_METRO_STATIONS)
             df = pd.DataFrame(self._metro_stations).T
-            self._metro_stations_names = df['name'].values
-            self._metro_stations_coord = df[['latitude', 'longitude']].to_numpy(dtype=float)
+            self._metro_stations_names = df["name"].values
+            self._metro_stations_coord = df[["latitude", "longitude"]].to_numpy(dtype=float)
 
         point = np.array([lat, long], dtype=float)
         nearest_station_idx = np.argmin(np.linalg.norm(point - self._metro_stations_coord, axis=1))
@@ -207,8 +210,8 @@ class TWAnalytics:
 
 
 class TWModel:
-    MODEL_PATH = './182.zip'
-    MODEL_URI = 'http://vectors.nlpl.eu/repository/20/182.zip'
+    MODEL_PATH = "./182.zip"
+    MODEL_URI = "http://vectors.nlpl.eu/repository/20/182.zip"
 
     def __init__(self, model_path=None):
         model_path = self.MODEL_PATH if model_path is None else model_path

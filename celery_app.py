@@ -8,15 +8,16 @@ from easydict import EasyDict as edict
 from twtw.utils.db import DBHelperMongo
 from twtw.utils.helpers import TWAnalytics, load_config
 
-app = Celery('worker', broker='pyamqp://guest@localhost')
+app = Celery("worker", broker="pyamqp://guest@localhost")
 
 
 @app.task
-def listen_stream(args=None,
-                  config='./configs/listen_stream.yaml',
-                  max_num_of_tweets=100,
-                  max_iterations=20,
-                  ):
+def listen_stream(
+    args=None,
+    config="./configs/listen_stream.yaml",
+    max_num_of_tweets=100,
+    max_iterations=20,
+):
     if args is None:
         args = edict()
         config = load_config(config)
@@ -41,15 +42,20 @@ def listen_stream(args=None,
             database.insert_tweet(tweet)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, help='If config_path is provided, args will be overwritten using config file')
-    parser.add_argument('--city', default='moscow', help='City to listen stream')
-    parser.add_argument('--db', default='mongo', choices=['mongo', 'postgres'], help='Type of DB to be used to store results')
+    parser.add_argument(
+        "--config", type=str, help="If config_path is provided, args will be overwritten using config file"
+    )
+    parser.add_argument("--city", default="moscow", help="City to listen stream")
+    parser.add_argument(
+        "--db", default="mongo", choices=["mongo", "postgres"], help="Type of DB to be used to store results"
+    )
     args = parser.parse_args()
     raise NotImplementedError("Run via celery -A celery_app worker --loglevel=info")
 
-elif __name__ == 'celery_app':
+elif __name__ == "celery_app":
     task_id = uuid()
-    listen_stream.apply_async(kwargs={'max_num_of_tweets': 100, 'max_iterations': 20},
-                              task_id=task_id, queue='twitter_api')
+    listen_stream.apply_async(
+        kwargs={"max_num_of_tweets": 100, "max_iterations": 20}, task_id=task_id, queue="twitter_api"
+    )
