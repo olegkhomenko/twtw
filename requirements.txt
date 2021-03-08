@@ -3,3 +3,5 @@ PyYAML
 nltk
 gensim
 pymongo
+twitter
+celery
