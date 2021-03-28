@@ -132,3 +132,4 @@ dmypy.json
 config.yaml
 tw_access_token_key
 tw_access_token_secret
+.vscode

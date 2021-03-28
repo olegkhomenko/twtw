@@ -52,11 +52,11 @@ def remove_outliers(df: pd.DataFrame):
 
 class Timer:
     def __enter__(self):
-        self.start = time.clock()
+        self.start = time.perf_counter()
         return self
 
     def __exit__(self, *args):
-        self.end = time.clock()
+        self.end = time.perf_counter()
         self.interval = self.end - self.start
         print(self.interval)
 
